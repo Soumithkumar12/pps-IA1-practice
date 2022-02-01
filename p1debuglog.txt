@@ -1,5 +1,9 @@
-gcc -g p1original.c 
- gdb a.out 
+gcc -g p1final.c
+ ./a.out
+Enter two numbers
+8 12
+sum of 8+12 =20
+ gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -15,26 +19,26 @@ Find the GDB manual and other documentation resources online at:
 For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
-(gdb) b main 
-Breakpoint 1 at 0x722: file p1original.c, line 3.
-(gdb) r 
+(gdb) b main
+Breakpoint 1 at 0x7eb: file p1final.c, line 12.
+(gdb) r
 Starting program: /home/runner/pps-IA1-practice/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p1original.c:3
-3   {
-(gdb) n 
-5   printf("add two numbers");
+Breakpoint 1, main () at p1final.c:12
+12    add();
 (gdb) s
-__printf (format=0x55c004e00824 "add two numbers") at printf.c:28
-28  printf.c: No such file or directory.
-(gdb) p
-The history is empty.
+add () at p1final.c:3
+3   {
+(gdb) n
+5     printf("Enter two numbers\n");
+(gdb) s
+_IO_puts (str=0x55b802c00884 "Enter two numbers") at ioputs.c:33
+33  ioputs.c: No such file or directory.
 (gdb) c
 Continuing.
-add two numbers12
-233
-sum of a+b is 245[Inferior 1 (process 86) exited normally]
-(gdb) l
-23  in printf.c
-(gdb) 
+Enter two numbers
+8 12
+sum of 8+12 =20
+[Inferior 1 (process 554) exited normally]
+(gdb)

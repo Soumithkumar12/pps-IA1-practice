@@ -1,5 +1,13 @@
-gcc -g p2original.c 
- gdb a.out 
+gcc -g p2final.c
+ ./a.out
+enter value
+10
+enter value
+20
+enter value
+30
+biggest number is 30
+ gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -15,30 +23,34 @@ Find the GDB manual and other documentation resources online at:
 For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
-(gdb) b main 
-Breakpoint 1 at 0x7eb: file p2original.c, line 12.
+(gdb) b main
+Breakpoint 1 at 0x826: file p2final.c, line 25.
 (gdb) r
 Starting program: /home/runner/pps-IA1-practice/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p2original.c:12
-12    add();
+Breakpoint 1, main () at p2final.c:25
+25    x=input();x=10;
 (gdb) n
-Enter two numbers
-12
-12
-sum of 12 + 12 =24
-13    return 0;
+enter value
+10
+26    y=input();y=20;
 (gdb) s
-14  }(gdb) p
-The history is empty.
+input () at p2final.c:3
+3   {
+(gdb) n
+5     printf("enter value\n");
+(gdb) s
+_IO_puts (str=0x55fc1ea00914 "enter value") at ioputs.c:33
+33  ioputs.c: No such file or directory.
 (gdb) c
 Continuing.
-[Inferior 1 (process 219) exited normally]
-(gdb) l
-9   }
-10  int main()
-11  {
-12    add();
-13    return 0;
-14  }(gdb) 
+enter value
+10
+enter value
+
+20
+biggest number is 30
+[Inferior 1 (process 596) exited normally]
+(gdb) Quit
+(gdb)
